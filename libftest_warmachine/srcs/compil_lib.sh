@@ -6,7 +6,7 @@
 #    By: jtoty <jtoty@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/23 18:26:36 by jtoty             #+#    #+#              #
-#    Updated: 2019/11/14 02:03:41 by mle-floc         ###   ########.fr        #
+#    Updated: 2017/04/03 10:35:38 by jtoty            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,7 @@
 
 func_compil_lib()
 {
-	text="COMPILING LIBFT"
-	printf "${COLOR_TITLE}"
-	printf "%.s${CHAR_LENGTH}" $(seq 1 ${TITLE_LENGTH})
-	printf "\n${CHAR_WIDTH}\033[$(( (${TITLE_LENGTH} - ${#text}) / 2 ))G${text}\033[${TITLE_LENGTH}G${CHAR_WIDTH}\n"
-	printf "%.s${CHAR_LENGTH}" $(seq 1 ${TITLE_LENGTH})
-	printf "\n\n${DEFAULT}"
+	print_header "COMPILING LIBFT"
 	if [ -e ${PATH_LIBFT}/libft.a ]
 	then
 		rm -f ${PATH_LIBFT}/libft.a
@@ -54,7 +49,7 @@ func_compil_lib()
 
 		if [ ${OPT_FULL_MAKEFILE} -eq 1 ]
 		then
-			rm -f ${PATH_LIBFT}/ft_*.o
+			find ${PATH_LIBFT} -type f -name "*.o" -exec rm {} \;
 			printf "\n$> make all\n" >> ${PATH_DEEPTHOUGHT}/deepthought
 			make --no-print-directory -C ${PATH_LIBFT} all>>${PATH_DEEPTHOUGHT}/deepthought 2>&1
 			if [ -z "$(grep -w all ${PATH_LIBFT}/${MAKEFILE_VAR} | tr -d ' ' | tr -d '\t' | cut -d ':' -f 1 | grep -w all)" ]
@@ -80,10 +75,10 @@ func_compil_lib()
 
 		if [ ${OPT_FULL_MAKEFILE} -eq 1 ]
 		then
-			rm -f ${PATH_LIBFT}/ft_*.o
+			find ${PATH_LIBFT} -type f -name "*.o" -exec rm {} \;
 			printf "\n$> make $(grep -w NAME ${PATH_LIBFT}/Makefile | grep = | cut -d '=' -f 2 | tr -d ' ' | tr -d '\t')\n" >> ${PATH_DEEPTHOUGHT}/deepthought
 			make --no-print-directory -C ${PATH_LIBFT} $(grep NAME ${PATH_LIBFT}/${MAKEFILE_VAR} | grep = | cut -d '=' -f 2 | tr -d ' ' | tr -d '\t') >>${PATH_DEEPTHOUGHT}/deepthought 2>&1
-			if [ -z "$(grep -w '$(NAME)' ${PATH_LIBFT}/${MAKEFILE_VAR} | grep ':' | tr -d ' ' | tr -d '\t' | cut -d ':' -f 1 | grep -w '$(NAME)')" | grep -w '${NAME}'} ]
+			if [ -z "$(grep -w '$(NAME)' ${PATH_LIBFT}/${MAKEFILE_VAR} | grep ':' | tr -d ' ' | tr -d '\t' | cut -d ':' -f 1 | grep -w '$(NAME)')" ]
 			then
 				printf "\033[17G${COLOR_FAIL}missing rule${DEFAULT}"
 			else
@@ -96,7 +91,7 @@ func_compil_lib()
 				fi
 			fi
 		else
-			if [ -z "$(grep -w '$(NAME)' ${PATH_LIBFT}/${MAKEFILE_VAR} | grep ':' | tr -d ' ' | tr -d '\t' | cut -d ':' -f 1 | grep -w '$(NAME)')" | grep -w '${NAME}'}]
+			if [ -z "$(grep -w '$(NAME)' ${PATH_LIBFT}/${MAKEFILE_VAR} | grep ':' | tr -d ' ' | tr -d '\t' | cut -d ':' -f 1 | grep -w '$(NAME)')" ]
 			then
 				printf "\033[17G${COLOR_FAIL}not found${DEFAULT}"
 			else
@@ -112,13 +107,14 @@ func_compil_lib()
 			then
 				printf "\033[34G${COLOR_FAIL}missing rule${DEFAULT}"
 			else
-				if [ ! -e ${PATH_LIBFT}/libft.a ] && [ ! -e ${PATH_LIBFT}/ft_*.o ]
+				LS_OBJ=$(ls -R ${PATH_LIBFT} | grep "\.o$")
+				if [ ! -e ${PATH_LIBFT}/libft.a ] && [[ -z $(echo ${LS_OBJ}) ]]
 				then
 					printf "\033[34G${COLOR_OK}ok${DEFAULT}"
-					touch ${PATH_LIBFT}/libft.a
+					# touch ${PATH_LIBFT}/libft.a
 				else
 					printf "\033[34G${COLOR_FAIL}fail${DEFAULT}"
-					rm -f ${PATH_LIBFT}/ft_*.o
+					find ${PATH_LIBFT} -type f -name "*.o" -exec rm {} \;
 					rm -f ${PATH_LIBFT}/libft.a
 				fi
 			fi
@@ -135,6 +131,10 @@ func_compil_lib()
 		if [ ${OPT_FULL_MAKEFILE} -eq 1 ]
 		then
 			make --no-print-directory -C ${PATH_LIBFT} re >> ${PATH_DEEPTHOUGHT}/deepthought 2>&1
+			if [[ -n "$(grep -w bonus ${PATH_LIBFT}/${MAKEFILE_VAR} | tr -d ' ' | tr -d '\t' | grep bonus: | cut -d ':' -f 1 | grep -w bonus)" ]]
+			then
+				make --no-print-directory -C ${PATH_LIBFT} bonus >> ${PATH_DEEPTHOUGHT}/deepthought 2>&1
+			fi
 			if [ -z "$(grep -w re ${PATH_LIBFT}/${MAKEFILE_VAR} | tr -d ' ' | tr -d '\t' | cut -d ':' -f 1 | grep -w re)" ]
 			then
 				printf "\033[51G${COLOR_FAIL}missing rule${DEFAULT}"
@@ -163,7 +163,8 @@ func_compil_lib()
 			then
 				printf "\033[67G${COLOR_FAIL}missing rule${DEFAULT}"
 			else
-				if [ ! -e ${PATH_LIBFT}/ft_*.o ]
+				LS_OBJ=$(ls -R ${PATH_LIBFT} | grep "\.o$")
+				if [[ -z $(echo ${LS_OBJ}) ]]
 				then
 					printf "\033[67G${COLOR_OK}ok${DEFAULT}"
 				else
@@ -172,6 +173,10 @@ func_compil_lib()
 			fi
 		else
 			make --no-print-directory -C ${PATH_LIBFT} re >> ${PATH_DEEPTHOUGHT}/deepthought 2>&1
+			if [[ -n "$(grep -w bonus ${PATH_LIBFT}/${MAKEFILE_VAR} | tr -d ' ' | tr -d '\t' | grep bonus: | cut -d ':' -f 1 | grep -w bonus)" ]]
+			then
+				make --no-print-directory -C ${PATH_LIBFT} bonus >> ${PATH_DEEPTHOUGHT}/deepthought 2>&1
+			fi
 			if [ -z "$(grep -w re ${PATH_LIBFT}/${MAKEFILE_VAR} | tr -d ' ' | tr -d '\t' | cut -d ':' -f 1 | grep -w re)" ]
 			then
 				printf "\033[67G${COLOR_FAIL}missing rule${DEFAULT}"

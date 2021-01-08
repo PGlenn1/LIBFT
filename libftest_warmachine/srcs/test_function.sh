@@ -6,52 +6,16 @@
 #    By: jtoty <jtoty@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/23 18:27:09 by jtoty             #+#    #+#              #
-#    Updated: 2019/10/17 20:51:04 by xinwang          ###   ########.fr        #
+#    Updated: 2017/01/23 18:27:10 by jtoty            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #!/bin/bash
 
-check_turned_in_file()
-{
-	source ${PATH_TEST}/my_config.sh
-	text="= $1 "
-	printf "\n${text}" >> ${PATH_DEEPTHOUGHT}/deepthought
-	printf "%.s=" $(seq 1 $(( 80 - ${#text} ))) >> ${PATH_DEEPTHOUGHT}/deepthought
-	printf "\n" >> ${PATH_DEEPTHOUGHT}/deepthought
-
-	if [ -e ${PATH_LIBFT}/${SRC_DIR}/$1 ]
-	then
-		retvalue=1
-		return "$retvalue"
-	else
-		printf "\033[${NORME_COL}G"
-		printf "${COLOR_FAIL}NTI${DEFAULT}"
-		printf "\033[${CHEAT_COL}G"
-		printf "${COLOR_FAIL}NTI${DEFAULT}"
-		printf "\033[${COMPIL_COL}G"
-		printf "${COLOR_FAIL}NTI${DEFAULT}"
-		printf "\033[${TEST_COL}G"
-		printf "${COLOR_FAIL}NTI${DEFAULT}"
-		printf "\033[${RESULT_COL}G"
-		printf "${COLOR_FAIL}NTI${DEFAULT}\n"
-		printf "Nothing turned in\n" >> ${PATH_DEEPTHOUGHT}/deepthought
-		retvalue=0
-		return "$retvalue"
-	fi
-}
-
 
 test_function()
 {
-	printf "\n${COLOR_PART}$(echo ${part} | cut -d _ -f 1) functions\n\n"
-	printf "${COLOR_TITLE}"
-	printf "FUNCTION"
-	printf "\033[${NORME_COL}GNORME"
-	printf "\033[${CHEAT_COL}GFORBIDDEN FUNC."
-	printf "\033[${COMPIL_COL}GCOMPIL."
-	printf "\033[${TEST_COL}GTESTS"
-	printf "\033[${RESULT_COL}GRESULT\n${DEFAULT}"
+	print_part_header
 
 	let	"i=0"
 	let	"success=0"
@@ -62,9 +26,8 @@ test_function()
 		then
 		let	"total += 1"
 			printf "${COLOR_FUNC}"
-			func_name=$(echo "$function" | cut -d . -f 1)
-			printf "${func_name}"
-			check_turned_in_file $function
+			printf "${function}"
+			check_turned_in_functions $function
 			file=$?
 			if [ $file -eq 1 ]
 			then
@@ -126,4 +89,20 @@ test_function()
 		let	"i += 1"
 	done
 	printf "\n${COLOR_TOTAL}Total : ${success}/${total}${DEFAULT}\n"
+}
+# launch tests
+launch_tests()
+{
+	for part in ${tab_all_part[*]}
+	do
+		activate_part=$(echo ACTIVATE_${part} | tr '[:lower:]' '[:upper:]' | rev | cut -c 6- | rev)
+		if [ ${!activate_part} -eq 1 ]
+		then
+			text="= ${part}tions "
+			printf "\n${text}" >> ${PATH_DEEPTHOUGHT}/deepthought
+			printf "%.s=" $(seq 1 $(( 80 - ${#text} ))) >> ${PATH_DEEPTHOUGHT}/deepthought
+			printf "\n" >> ${PATH_DEEPTHOUGHT}/deepthought
+			test_function $(echo ${part}[*])
+		fi
+	done
 }

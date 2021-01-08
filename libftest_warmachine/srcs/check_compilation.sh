@@ -6,7 +6,7 @@
 #    By: jtoty <jtoty@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/23 18:26:19 by jtoty             #+#    #+#              #
-#    Updated: 2019/10/18 14:57:40 by dh4rm4           ###   ########.fr        #
+#    Updated: 2017/01/23 18:26:20 by jtoty            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,13 @@ compilation()
 	then
 		rm -f ${PATH_TEST}/user_exe
 	fi
-	printf "$> clang -Wextra -Wall -Werror -g3 -fsanitize=address $1 main.c libft.a -o user_exe\n\n" >> ${PATH_DEEPTHOUGHT}/deepthought
-	clang -Wextra -Wall -Werror -g3 -fsanitize=address ${PATH_TEST}/dirlibft/${SRC_DIR}/$1 \
-		  ${PATH_TEST}/tests/$(echo ${part}tions)/$(echo $1 | cut -d . -f 1)/main.c \
-		  -I ${PATH_LIBFT}/${HEADER_DIR}/ \
-		  ${PATH_TEST}/dirlibft/libft.a 2>>${PATH_DEEPTHOUGHT}/deepthought -o user_exe
+
+	COMPIL_FLAGS="-Wextra -Wall -Werror"
+	MAIN_FILE="${PATH_TEST}/tests/$(echo ${part}tions)/$1/main.c"
+	COMPIL_ARGS="${COMPIL_FLAGS} ${MAIN_FILE} -L${PATH_LIBFT} -lft -I${PATH_LIBFT}"
+
+	printf "$> clang ${COMPIL_ARGS}\n\n" >> ${PATH_DEEPTHOUGHT}/deepthought
+	clang ${COMPIL_ARGS} 2>>${PATH_DEEPTHOUGHT}/deepthought -o user_exe
 }
 
 check_compilation()

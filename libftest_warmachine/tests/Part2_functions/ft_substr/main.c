@@ -6,15 +6,15 @@
 /*   By: jtoty <jtoty@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 12:35:18 by jtoty             #+#    #+#             */
-/*   Updated: 2019/12/04 21:51:40 by lmartin          ###   ########.fr       */
+/*   Updated: 2017/03/09 15:54:34 by jtoty            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
-#include "../../../libft.h"
+#include "libft.h"
 
-void	ft_print_result(char const *s)
+static void		ft_print_result(char const *s)
 {
 	int		len;
 
@@ -24,67 +24,35 @@ void	ft_print_result(char const *s)
 	write(1, s, len);
 }
 
-int		main(int argc, const char *argv[])
+static void		check_substr(char *str, int start, int len)
+{
+	char	*substr;
+
+	if (!(substr = ft_substr(str, start, len)))
+		ft_print_result("NULL");
+	else
+		ft_print_result(substr);
+	if (str == substr)
+		ft_print_result("\nA new string was not returned");
+	else
+		free(substr);
+}
+
+int				main(int argc, const char *argv[])
 {
 	char	str[] = "lorem ipsum dolor sit amet";
-	char	*strsub;
 	int		arg;
 
 	alarm(5);
 	if (argc == 1)
 		return (0);
 	else if ((arg = atoi(argv[1])) == 1)
-	{
-		if (!(strsub = ft_substr(str, 0, 10)))
-			ft_print_result("NULL");
-		else
-			ft_print_result(strsub);
-		if (str == strsub)
-			ft_print_result("\nA new string was not returned");
-	}
+		check_substr(str, 0, 10);
 	else if (arg == 2)
-	{
-		if (!(strsub = ft_substr(str, 7, 10)))
-			ft_print_result("NULL");
-		else
-			ft_print_result(strsub);
-		if (str == strsub)
-			ft_print_result("\nA new string was not returned");
-	}
+		check_substr(str, 7, 10);
 	else if (arg == 3)
-	{
-		if (!(strsub = ft_substr(str, 7, 0)))
-			ft_print_result("NULL");
-		else
-			ft_print_result(strsub);
-		if (str == strsub)
-			ft_print_result("\nA new string was not returned");
-	}
+		check_substr(str, 7, 0);
 	else if (arg == 4)
-	{
-		if (!(strsub = ft_substr(str, 0, 0)))
-			ft_print_result("NULL");
-		else
-			ft_print_result(strsub);
-		if (str == strsub)
-			ft_print_result("\nA new string was not returned");
-	}
-	else if (arg == 5)
-	{
-		char *bullshit;
-		if (!(strsub = ft_substr(str, 400, 20)))
-			ft_print_result("NULL");
-		else
-		{
-			bullshit = (char *)&strsub[30];
-			bullshit = "FULL BULLSHIT";
-			if (strsub)
-				ft_print_result(strsub);
-			else
-				ft_print_result("rip");
-		}
-		if (str == strsub)
-			ft_print_result("\nA new string was not returned");
-	}
+		check_substr(str, 0, 0);
 	return (0);
 }

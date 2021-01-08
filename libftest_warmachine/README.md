@@ -1,17 +1,8 @@
-# WARNING
-This is an edit of prev libftest made by @jtoty to fit with the 2019 project libft. <br/>
-(ORIGINAL REP : https://github.com/jtoty/Libftest) <br/>
-This update was made by @lmartin <br/>
-Some things may not work (especially bonus part with lst functions), and things aren't tested. <br/>
-I will try to update this (@lmartin).
-
 # Libftest
 <img align="right" src="./srcs/img_readme.png" width="50%"/>
 This repository contains script to test your libft project.
 The script will do the following tests :
 
-- Check if the author file exists
-- Check content of the author file
 - Check if libft.h exists
 - Check norme of libft.h
 - Check if the Makefile file exists
@@ -39,6 +30,9 @@ Makefile up to date.
 git clone https://github.com/jtoty/Libftest
 ```
 
+#### Old libft subject
+To test the old libft subject, you have to go to the branch [old-libft](https://github.com/jtoty/Libftest/tree/old-libft).
+
 ### Configuration
 
 If you run the script for the first time, it will automatically create
@@ -47,29 +41,13 @@ project.
 You can also choose the colors that will be used and the path where the
 deepthought file will be created.
 
-#### Custom directories
-
-If you use custom directories for your header and source files; you should specify there name in my_config.sh.
-
-The following variables must be set:
-```
-HEADER_DIR
-SRC_DIR
-```
-Exemple:
-```
-HEADER_DIR="includes"
-SRC_DIR="srcs"
-```
-
-
 ## Running script
 
-Go to the directory where you cloned and run the script
+Run the script from the directory where you cloned
 ```bash
 bash grademe.sh
 ```
-or simply run the script with the path
+or run the script with the path
 ```bash
 bash /path/where/you/cloned/grademe.sh
 ```
@@ -78,7 +56,6 @@ bash /path/where/you/cloned/grademe.sh
 | Option | Description |
 | --- | --- |
 | `-h`<br />`--help` | Display help and exit |
-| `-d` | Allows to perform the tests even if the files are in directories |
 | `-c` | Disable color |
 | `-s` | Disable searching Makefile and author files |
 | `-m` | When compiling library, test all the Makefile's rules (instead of doing only make re and checking if other rules exist). |
