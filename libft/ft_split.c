@@ -6,7 +6,7 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:43:31 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/01/06 17:21:58 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/01/08 13:20:05 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ static	int	ft_word_count(char *s, char c)
 			words++;
 		i++;
 	}
+	printf("word_count: %d\n", words);
 	return (words);
 }
 
@@ -89,21 +90,40 @@ char	**ft_split(char *s, char c)
 		return (NULL);
 	while (s[i] == c)
 		i++;
+	printf("%c trouvé %d fois\n", c, i);
 	if (s[i] != c && s[i])
+	{
 		if (!(tab[j] = ft_strndup(&s[i], ft_word_index(&s[i], c))))
 			ft_free_tab(tab);
+	}
 	while (s[i])
 	{
+		printf("yo\n");
 		if (s[i] == c && s[i + 1] != c && s[i + 1] != 0)	
 		{
 			j++;
+			printf("j: %d\n", j);
 			if (!(tab[j] = ft_strndup(&s[i + 1], ft_word_index(&s[i + 1], c))))
 				ft_free_tab(tab);
 			s[i] = 0;
 		}
 		i++;
-	
 	}
 	tab[j + 1] = 0;
+	i = 0;
+	// TEST//
+	while (tab[i])
+	{
+		printf("result: %s\n", tab[i]);
+		i++;
+	}
+	// END TEST//
 	return (tab);
+}
+
+int		main(int argc, char **argv)
+{
+	(void)argc;
+	ft_split(argv[1], *argv[2]);
+	return (0);
 }

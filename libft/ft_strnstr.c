@@ -6,11 +6,29 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:54:27 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/01/07 17:40:38 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/01/08 10:01:02 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	ft_strncmp_mod(char *s1, char *s2, size_t n) 
+{
+	size_t i;
+	unsigned char *char_s1;
+	unsigned char *char_s2;
+
+	i = 0;
+	char_s1 = (unsigned char*) s1;
+	char_s2 = (unsigned char*) s2;
+	while ((char_s1[i] && char_s2[i]) && i < n)
+	{
+		if (char_s1[i] != char_s2[i])
+			return (char_s1[i] - char_s2[i]);
+		i++;
+	}
+	return (0);
+}
 
 char	*ft_strnstr(char *haystack, char *needle, size_t len)
 {
@@ -21,13 +39,8 @@ char	*ft_strnstr(char *haystack, char *needle, size_t len)
 	i = 0;
 	while (haystack[i] && i < len)
 	{
-
-		//printf("comparaison %s et %s == %d pour len %d et i %d\n", &haystack[i], needle, test, len - i, i);
-
-		//printf("taille %d\n", len - i);
-		if (!ft_strncmp(&haystack[i], needle, len - i))
+		if (!ft_strncmp_mod(&haystack[i], needle, len - i))
 		{
-		//	printf("index %d dans %d\n", i + ft_strlen(needle) , len);
 			if (i + ft_strlen(needle) <= len)
 				return (&haystack[i]);
 		}
@@ -35,11 +48,3 @@ char	*ft_strnstr(char *haystack, char *needle, size_t len)
 	}
 	return (NULL);
 }
-
-//int	main(int argc, char **argv)
-//{
-//	(void)argc;
-//	printf("result: %s\n", ft_strnstr(argv[1], argv[2], atoi(argv[3])));
-//	printf("expected: %s\n", strnstr(argv[1], argv[2], atoi(argv[3])));
-//	return (0);
-//}
