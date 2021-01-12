@@ -90,19 +90,17 @@ char	**ft_split(char *s, char c)
 		return (NULL);
 	while (s[i] == c)
 		i++;
-	printf("%c trouvé %d fois\n", c, i);
-	if (s[i] != c && s[i])
-	{
-		if (!(tab[j] = ft_strndup(&s[i], ft_word_index(&s[i], c))))
-			ft_free_tab(tab);
-	}
+	printf("i:%d\n", i);
+	if (!(tab[j] = ft_strndup(&s[i], ft_word_index(&s[i], c))))
+		ft_free_tab(tab);
 	while (s[i])
 	{
-		printf("yo\n");
-		if (s[i] == c && s[i + 1] != c && s[i + 1] != 0)	
+		//printf("s[%d]: %s\n", i, s);
+		/// ICI QUE CA SEGFAULT///
+		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')	
 		{
 			j++;
-			printf("j: %d\n", j);
+			printf("\nj: %d\n\n", j);
 			if (!(tab[j] = ft_strndup(&s[i + 1], ft_word_index(&s[i + 1], c))))
 				ft_free_tab(tab);
 			s[i] = 0;
@@ -110,13 +108,14 @@ char	**ft_split(char *s, char c)
 		i++;
 	}
 	tab[j + 1] = 0;
-	i = 0;
 	// TEST//
-	while (tab[i])
-	{
-		printf("result: %s\n", tab[i]);
-		i++;
-	}
+	i = 0;
+	printf("result: %s\n", tab[j]);
+//	while (tab[i])
+//	{
+//		printf("result: %s\n", tab[i]);
+//		i++;
+//	}
 	// END TEST//
 	return (tab);
 }
