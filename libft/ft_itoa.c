@@ -46,7 +46,7 @@ char		*ft_itoa(int n)
 	{
 		if (n == -2147483648)
 		{
-			s = "-2147483648";
+			ft_memcpy(s, "-2147483648",  12);
 			return (s);
 		}
 		is_negative = 1;
@@ -65,9 +65,10 @@ char		*ft_itoa(int n)
 	return (s);
 }
 
-int	main(int argc, char **argv)
-{
-	(void)argc;
-	printf("result: %s\n", ft_itoa(ft_atoi(argv[1])));
-	printf("result atoi: %s\n", ft_itoa(atoi(argv[1])));
-}
+//int	main(int argc, char **argv)
+//{
+//	(void)argc;
+//	(void)argv;
+//	printf("result: %s\n", ft_itoa(-2147483648LL));
+//	printf("result: %s\n", ft_itoa(-2147483648LL));
+//}

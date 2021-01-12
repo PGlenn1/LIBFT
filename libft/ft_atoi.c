@@ -12,12 +12,19 @@
 
 #include "libft.h"
 
-static	int	ft_skip_non_printable(char *str)
+static	int	ft_is_whitespace(char *str)
 {
 	int i;
 
 	i = 0;
-	while (str[i] < 33 || str[i] > 126)
+	while (str[i] == '\t' 
+			|| str[i] == '\n'
+			|| str[i] == '\r'
+			|| str[i] == '\v'
+			|| str[i] == '\f'
+			|| str[i] == '\b'
+			|| str[i] == ' '
+			|| str[i] > 126)
 		i++;
 	return (i);
 }
@@ -50,7 +57,7 @@ int			ft_atoi(char *str)
 	if (!ft_strcmp(str, "-2147483648"))
 		return (-2147483648);
 	is_negative = 0;
-	i = ft_skip_non_printable(str);
+	i = ft_is_whitespace(str);
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
@@ -70,6 +77,8 @@ int			ft_atoi(char *str)
 //int	main(int argc, char **argv)
 //{
 //	(void)argc;
-//	printf("result: %d\n", ft_atoi(argv[1]));
+//	(void)argv;
+//	printf("result: %d\n", ft_atoi("\e475"));
+//	printf("expected: %d\n", atoi("\e475"));
 //	return (0);
 //}

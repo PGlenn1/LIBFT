@@ -17,7 +17,7 @@ static int	ft_word_index(char *s, char c)
 	int i;
 
 	i = 0;
-	while (s[i] != c)
+	while (s[i] && s[i] != c)
 		i++;
 	return (i);
 }
@@ -71,7 +71,7 @@ static int	ft_word_count(char *s, char c)
 			words++;
 		i++;
 	}
-	printf("word_count: %d\n", words);
+	//printf("word_count: %d\n", words);
 	return (words);
 }
 
@@ -85,30 +85,33 @@ char		**ft_split(char *s, char c)
 	j = 0;
 	if (!*s || !(tab = malloc((ft_word_count(s, c) + 1) * sizeof(char *))))
 		return (NULL);
-	while (s[i] == c)
-		i++;
-	if (!(tab[j] = ft_strndup(&s[i], ft_word_index(&s[i], c))))
-		ft_free_tab(tab);
 	while (s[i])
 	{
 		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
 		{
-			j++;
 			if (!(tab[j] = ft_strndup(&s[i + 1], ft_word_index(&s[i + 1], c))))
+			{
 				ft_free_tab(tab);
-			s[i] = 0;
+				return (NULL);
+			}
+			j++;
 		}
 		i++;
 	}
-	tab[j + 1] = 0;
+	tab[j] = NULL;
 	// TEST//
 	i = 0;
-	while (tab[i])
-	{
-		printf("result: %s\n", tab[i]);
-		i++;
-	}
-	printf("result: %s\n", tab[i]);
+//	while (tab[i])
+//	{
+//		write(1, "yo\n", 3);
+//		ft_putstr_fd(tab[i], 1);
+//		printf("!!result: !%s!\n", tab[i]);
+//		printf("%p\n", tab);
+//		printf("%p\n", tab[i]);
+//		write(1, "yo\n", 3);
+//		i++;
+//	}
+//	printf("result: %s\n", tab[i]);
 	// END TEST//
 	return (tab);
 }
@@ -116,6 +119,8 @@ char		**ft_split(char *s, char c)
 //int		main(int argc, char **argv)
 //{
 //	(void)argc;
-//	ft_split(argv[1], *argv[2]);
+//	(void)argv;
+//	ft_split("lorem ipsum dolor sit amet, consec    tetur adipiscing elit. Sed non risus. Suspendisse", ' ');
+//	ft_split("   lorem   ipsum dolor     sit ame    t, consectetur   adipiscing elit. Sed non risus. Suspen    disse   ", ' ');
 //	return (0);
 //}
