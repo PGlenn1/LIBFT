@@ -25,12 +25,10 @@ static	int		ft_word_index(char *s, char c)
 static	char	*ft_strndup(char *s1, int n)
 {	
 	int i;
-	int len;
 	char *s1_dup;
 
 	i = 0;
-	len = ft_strlen(s1);
-	if (!(s1_dup = malloc(len * sizeof(char))))
+	if (!(s1_dup = malloc((n + 1) * sizeof(char))))
 		return (NULL);
 
 	while (s1[i] && i < n)
@@ -38,13 +36,13 @@ static	char	*ft_strndup(char *s1, int n)
 		s1_dup[i] = s1[i];
 		i++;
 	}
-	s1_dup[i] = 0;
+	s1_dup[i] = '\0';
 	return (s1_dup);
 }
 
 static	void	ft_free_tab(char **tab)
 {
-	int i;	
+	int i;
 
 	i = 0;
 	while (tab[i])
@@ -74,7 +72,7 @@ static	int	ft_word_count(char *s, char c)
 			words++;
 		i++;
 	}
-	printf("word_count: %d\n", words);
+//	printf("word_count: %d\n", words);
 	return (words);
 }
 
@@ -86,21 +84,18 @@ char	**ft_split(char *s, char c)
 
 	i = 0;
 	j = 0;
-	if (!*s || !(tab = malloc((ft_word_count(s, c) + 1) * sizeof(char *) + 1)))
+	if (!*s || !(tab = malloc((ft_word_count(s, c) + 1) * sizeof(char *))))
 		return (NULL);
 	while (s[i] == c)
 		i++;
-	printf("i:%d\n", i);
 	if (!(tab[j] = ft_strndup(&s[i], ft_word_index(&s[i], c))))
 		ft_free_tab(tab);
 	while (s[i])
 	{
-		//printf("s[%d]: %s\n", i, s);
 		/// ICI QUE CA SEGFAULT///
 		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')	
 		{
 			j++;
-			printf("\nj: %d\n\n", j);
 			if (!(tab[j] = ft_strndup(&s[i + 1], ft_word_index(&s[i + 1], c))))
 				ft_free_tab(tab);
 			s[i] = 0;
@@ -108,15 +103,14 @@ char	**ft_split(char *s, char c)
 		i++;
 	}
 	tab[j + 1] = 0;
-	// TEST//
-	i = 0;
-	printf("result: %s\n", tab[j]);
+//	// TEST//
+//	i = 0;
 //	while (tab[i])
 //	{
 //		printf("result: %s\n", tab[i]);
 //		i++;
 //	}
-	// END TEST//
+//	// END TEST//
 	return (tab);
 }
 
