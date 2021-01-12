@@ -14,13 +14,13 @@
 
 char	*ft_substr(char *s, unsigned int start, size_t len)
 {
-	unsigned int i;
-	char *str;
+	unsigned int	i;
+	char			*str;
 
 	i = 0;
 	if (!(str = malloc(len * sizeof(char))))
 		return (NULL);
-	while (i < len)	
+	while (i < len)
 	{
 		str[i] = s[start + i];
 		i++;

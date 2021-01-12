@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static	int		ft_len_n(int n)
+static int	ft_len_n(int n)
 {
 	int len_n;
 	int n_parsed;
@@ -21,7 +21,7 @@ static	int		ft_len_n(int n)
 	n_parsed = n;
 	while (n_parsed / 10 != 0)
 	{
-		n_parsed = n_parsed / 10; 
+		n_parsed = n_parsed / 10;
 		len_n++;
 	}
 	if (n < 0)
@@ -29,13 +29,13 @@ static	int		ft_len_n(int n)
 	return (len_n);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
-	int i;
-	int len_n;
-	int n_parsed;
-	int is_negative;
-	char *s;
+	int		i;
+	int		len_n;
+	int		n_parsed;
+	int		is_negative;
+	char	*s;
 
 	len_n = ft_len_n(n);
 	n_parsed = n;
@@ -63,4 +63,11 @@ char	*ft_itoa(int n)
 		s[0] = '-';
 	s[i] = 0;
 	return (s);
+}
+
+int	main(int argc, char **argv)
+{
+	(void)argc;
+	printf("result: %s\n", ft_itoa(ft_atoi(argv[1])));
+	printf("result atoi: %s\n", ft_itoa(atoi(argv[1])));
 }

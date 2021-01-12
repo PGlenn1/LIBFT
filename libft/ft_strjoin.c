@@ -12,23 +12,26 @@
 
 #include "libft.h"
 
-static	char	*ft_strcat(char *s1, char *s2)
+static char	*ft_strcat(char *s1, char *s2)
 {
-	int i;	
+	int i;
 	int s1_len;
 
 	i = 0;
 	s1_len = ft_strlen(s1);
+	printf("s1: %s\n", s1);
+	printf("s2: %s\n", s2);
 	while (s2[i])
 	{
 		s1[s1_len + i] = s2[i];
 		i++;
 	}
 	s1[s1_len + i] = 0;
+	printf("s1 concatenated: %s\n", s1);
 	return (s1);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char		*ft_strjoin(char *s1, char *s2)
 {
 	char *s3;
 
@@ -37,3 +40,10 @@ char	*ft_strjoin(char *s1, char *s2)
 	s3 = ft_strcat(s1, s2);
 	return (s3);
 }
+
+//int	main(int argc, char **argv)
+//{
+//	(void)argc;
+//	printf("result: %s\n", ft_strjoin(argv[1], argv[2]));
+//	return (0);
+//}

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static int ft_skip_non_printable(char *str)
+static	int	ft_skip_non_printable(char *str)
 {
 	int i;
 
@@ -22,14 +22,14 @@ static int ft_skip_non_printable(char *str)
 	return (i);
 }
 
-static int	ft_strcmp(char *s1, char *s2) 
+static	int	ft_strcmp(char *s1, char *s2)
 {
-	unsigned int i;
-	unsigned char *char_s1;
-	unsigned char *char_s2;
+	unsigned	int		i;
+	unsigned	char	*char_s1;
+	unsigned	char	*char_s2;
 
-	char_s1 = (unsigned char*) s1;
-	char_s2 = (unsigned char*) s2;
+	char_s1 = (unsigned char*)s1;
+	char_s2 = (unsigned char*)s2;
 	i = 0;
 	while (char_s1[i] || char_s2[i])
 	{
@@ -48,10 +48,7 @@ int			ft_atoi(char *str)
 
 	res = 0;
 	if (!ft_strcmp(str, "-2147483648"))
-	{
-		res = -2147483648;
-		return (res);
-	}
+		return (-2147483648);
 	is_negative = 0;
 	i = ft_skip_non_printable(str);
 	if (str[i] == '+' || str[i] == '-')
@@ -70,10 +67,9 @@ int			ft_atoi(char *str)
 	return (res);
 }
 
-int		main(int argc, char **argv)
-{
-	(void)argc;
-	printf("result: %d\n", ft_atoi(argv[1]));
-	printf("expected: %d\n", atoi(argv[1]));
-	return (0);
-}
+//int	main(int argc, char **argv)
+//{
+//	(void)argc;
+//	printf("result: %d\n", ft_atoi(argv[1]));
+//	return (0);
+//}

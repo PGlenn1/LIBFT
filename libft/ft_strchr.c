@@ -14,10 +14,10 @@
 
 char	*ft_strchr(char *s, int c)
 {
-	unsigned char char_c;
-	unsigned int i;
+	unsigned char	char_c;
+	unsigned int	i;
 
-	char_c = (unsigned char) c;
+	char_c = (unsigned char)c;
 	i = 0;
 	while (s[i])
 	{

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static	int		ft_word_index(char *s, char c)
+static int	ft_word_index(char *s, char c)
 {
 	int i;
 
@@ -22,15 +22,14 @@ static	int		ft_word_index(char *s, char c)
 	return (i);
 }
 
-static	char	*ft_strndup(char *s1, int n)
-{	
-	int i;
-	char *s1_dup;
+static char	*ft_strndup(char *s1, int n)
+{
+	int		i;
+	char	*s1_dup;
 
 	i = 0;
 	if (!(s1_dup = malloc((n + 1) * sizeof(char))))
 		return (NULL);
-
 	while (s1[i] && i < n)
 	{
 		s1_dup[i] = s1[i];
@@ -40,7 +39,7 @@ static	char	*ft_strndup(char *s1, int n)
 	return (s1_dup);
 }
 
-static	void	ft_free_tab(char **tab)
+static void	ft_free_tab(char **tab)
 {
 	int i;
 
@@ -55,7 +54,7 @@ static	void	ft_free_tab(char **tab)
 	return ;
 }
 
-static	int	ft_word_count(char *s, char c)
+static int	ft_word_count(char *s, char c)
 {
 	int i;
 	int	words;
@@ -68,19 +67,19 @@ static	int	ft_word_count(char *s, char c)
 		words++;
 	while (s[i])
 	{
-		if (s[i] == c && s[i + 1] != c && s[i + 1] != 0)	
+		if (s[i] == c && s[i + 1] != c && s[i + 1] != 0)
 			words++;
 		i++;
 	}
-//	printf("word_count: %d\n", words);
+	printf("word_count: %d\n", words);
 	return (words);
 }
 
-char	**ft_split(char *s, char c)
+char		**ft_split(char *s, char c)
 {
-	int i;
-	int j;
-	char **tab;
+	int		i;
+	int		j;
+	char	**tab;
 
 	i = 0;
 	j = 0;
@@ -92,8 +91,7 @@ char	**ft_split(char *s, char c)
 		ft_free_tab(tab);
 	while (s[i])
 	{
-		/// ICI QUE CA SEGFAULT///
-		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')	
+		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
 		{
 			j++;
 			if (!(tab[j] = ft_strndup(&s[i + 1], ft_word_index(&s[i + 1], c))))
@@ -103,20 +101,21 @@ char	**ft_split(char *s, char c)
 		i++;
 	}
 	tab[j + 1] = 0;
-//	// TEST//
-//	i = 0;
-//	while (tab[i])
-//	{
-//		printf("result: %s\n", tab[i]);
-//		i++;
-//	}
-//	// END TEST//
+	// TEST//
+	i = 0;
+	while (tab[i])
+	{
+		printf("result: %s\n", tab[i]);
+		i++;
+	}
+	printf("result: %s\n", tab[i]);
+	// END TEST//
 	return (tab);
 }
 
-int		main(int argc, char **argv)
-{
-	(void)argc;
-	ft_split(argv[1], *argv[2]);
-	return (0);
-}
+//int		main(int argc, char **argv)
+//{
+//	(void)argc;
+//	ft_split(argv[1], *argv[2]);
+//	return (0);
+//}
