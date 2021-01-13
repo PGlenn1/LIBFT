@@ -6,7 +6,7 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:43:31 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/01/08 13:20:05 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/01/13 11:52:16 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,16 @@ char		**ft_split(char *s, char c)
 	j = 0;
 	if (!*s || !(tab = malloc((ft_word_count(s, c) + 1) * sizeof(char *))))
 		return (NULL);
+	if (s[i] != c)
+	{
+		if (!(tab[j] = ft_strndup(&s[i], ft_word_index(&s[i], c))))
+		{
+		//	printf("tab[0]: %s\n", tab[0]);
+			ft_free_tab(tab);
+			return (NULL);
+		}
+		j++;
+	}
 	while (s[i])
 	{
 		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
@@ -99,20 +109,6 @@ char		**ft_split(char *s, char c)
 		i++;
 	}
 	tab[j] = NULL;
-	// TEST//
-	i = 0;
-//	while (tab[i])
-//	{
-//		write(1, "yo\n", 3);
-//		ft_putstr_fd(tab[i], 1);
-//		printf("!!result: !%s!\n", tab[i]);
-//		printf("%p\n", tab);
-//		printf("%p\n", tab[i]);
-//		write(1, "yo\n", 3);
-//		i++;
-//	}
-//	printf("result: %s\n", tab[i]);
-	// END TEST//
 	return (tab);
 }
 
@@ -120,7 +116,15 @@ char		**ft_split(char *s, char c)
 //{
 //	(void)argc;
 //	(void)argv;
+//	printf("\ntest 1\n\n");
+//	ft_split("         ", ' ');
+//	printf("\ntest 2\n\n");
 //	ft_split("lorem ipsum dolor sit amet, consec    tetur adipiscing elit. Sed non risus. Suspendisse", ' ');
-//	ft_split("   lorem   ipsum dolor     sit ame    t, consectetur   adipiscing elit. Sed non risus. Suspen    disse   ", ' ');
+//	printf("\ntest 3\n\n");
+//	ft_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing eli    t. Sed non risus. Suspendisse   ", ' ');
+//	printf("\ntest 4\n\n");
+//	ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'i');
+//	printf("\ntest 5\n\n");
+//	ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non     risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, d    olor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, e    uismod non, mi.", 'z');
 //	return (0);
 //}

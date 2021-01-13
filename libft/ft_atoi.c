@@ -6,7 +6,7 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 12:13:13 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/01/07 17:52:54 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/01/13 11:04:14 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static	int	ft_is_whitespace(char *str)
 	int i;
 
 	i = 0;
-	while (str[i] == '\t' 
+	while (str[i] == '\t'
 			|| str[i] == '\n'
 			|| str[i] == '\r'
 			|| str[i] == '\v'
