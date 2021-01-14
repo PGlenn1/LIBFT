@@ -17,60 +17,51 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	struct s_list *elem0;
 	struct s_list *new_node;
 	struct s_list *probe;
-	struct s_list *temp;
 	void *mapped_content;
 
 	if (!(elem0 = ft_lstnew(lst->content)))
 			return (NULL);
-	probe = elem0;
-	temp = elem0;
+	probe = lst;
+	probe = probe->next;
 	while (probe)
 	{
+		printf("probe content: %p\n", probe->content);
 		mapped_content = (*f)(probe->content);
 		if (!(new_node = ft_lstnew(mapped_content)))
 			ft_lstclear(&elem0, (del));
-		ft_lstadd_back(&temp, new_node);
-		temp = new_node;
+		ft_lstadd_back(&elem0, new_node);
 		probe = probe->next;
 	}
 	return (elem0);
 }
 
-void	ft_add_str(struct s_list *ptr)
+void	*ft_add_str(void *str)
 {
-	ptr->content = "salut";
-	return ;
+	char *str2;
+
+	str2 = (char *)str;
+	str2[0] += 1;
+	return (str);
 }
 
-void	ft_del(struct s_list *ptr)
+void	ft_del(void *str)
 {
-	free(ptr->content);
+	free(str);
 	return ;
 }
 
 int	main()
 {
-	struct s_list **ptr;
+	struct s_list **head;
 	struct s_list *probe;
 	struct s_list *elem0;
-	struct s_list *elem1;
-	struct s_list *elem2;
-	struct s_list *elem3;
-	struct s_list *elem4;
 
-	elem0 = *ptr;
-	probe = elem0;
+	elem0 = ft_lstnew(ft_strdup("prout"));
+	head = &elem0;
 
-	elem1 = elem0->next;
-	elem2 = elem1->next;
-	elem3 = elem2->next;
-	elem4 = elem3->next;
+	ft_lstadd_back(head, ft_lstnew(ft_strdup("caca")));
+	ft_lstadd_front(head, ft_lstnew(ft_lstnew("tits")));
+	probe = *head;
 
-	while (probe)
-	{
-		ft_lstmap(*ptr, (*ft_add_str)(probe), (*ft_del)(probe));
-		printf("elem: %p content: %s\n", &probe, probe->content);
-		probe = probe->next;
-	}
-	return (0);
+	ft_lstmap(probe, &ft_add_str, &ft_del);
 }
