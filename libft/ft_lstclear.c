@@ -1,17 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/14 13:39:14 by gpiriou           #+#    #+#             */
+/*   Updated: 2021/01/14 14:35:15 by gpiriou          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	struct s_list *ptr;
 	struct s_list *temp;
 	
-	ptr = *lst;
-	while (ptr)
+	if (!lst || !*lst || !del)
+		return ;
+	while (*lst)
 	{
-		temp = ptr->next;
-		ft_lstdelone(ptr, (del));
-		ptr = temp;
+		temp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = temp;
 	}
-	free(ptr);
-	lst = NULL;
+	free(*lst);
 }

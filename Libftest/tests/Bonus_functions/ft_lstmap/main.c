@@ -6,7 +6,7 @@
 /*   By: jtoty <jtoty@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 15:16:21 by jtoty             #+#    #+#             */
-/*   Updated: 2017/03/09 15:56:01 by jtoty            ###   ########.fr       */
+/*   Updated: 2021/01/14 16:45:09 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 #include <unistd.h>
 #include <string.h>
 
-// static void			ft_print_result(t_list *elem)
-// {
-// 	int		len;
-//
-// 	len = 0;
-// 	while (((char *)elem->content)[len])
-// 		len++;
-// 	write(1, elem->content, len);
-// 	write(1, "\n", 1);
-// }
+static void			ft_print_result(t_list *elem)
+ {
+ 	int		len;
+
+ 	len = 0;
+ 	while (((char *)elem->content)[len])
+ 		len++;
+ 	write(1, elem->content, len);
+ 	write(1, "\n", 1);
+ }
 
 static t_list		*get_lst_new_elem(void *content)
 {
