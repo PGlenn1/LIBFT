@@ -6,13 +6,13 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 14:58:50 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/01/14 14:58:51 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/01/15 15:09:16 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void	*content)
+t_list	*ft_lstnew(void *content)
 {
 	struct s_list *ptr;
 

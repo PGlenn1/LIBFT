@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/06 14:50:30 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/01/06 14:50:43 by gpiriou          ###   ########.fr       */
+/*   Created: 2021/01/15 11:07:29 by gpiriou           #+#    #+#             */
+/*   Updated: 2021/01/15 11:08:01 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,21 @@
 
 size_t	ft_strlcat(char *dst, char *src, size_t dstsize)
 {
-	unsigned int dst_len;
-	unsigned int i;
+	size_t i;
+	size_t dst_len;
+	size_t src_len;
 
-	dst_len = (unsigned int)ft_strlen(dst);
-	i = 0;
-	while (src[i] && i < (dstsize - dst_len - 1)) 
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	i = dst_len;
+	if (dst_len >= dstsize || dstsize == 0)
+		return (src_len + dstsize);
+	while (*src && i + 1 < dstsize)
 	{
-		dst[dst_len] = src[i];
+		dst[i] = *src;
+		src++;
 		i++;
-		dst_len++;
 	}
-	dst[dst_len] = '\0';
-	return (dst_len);
+	dst[i] = '\0';
+	return (dst_len + src_len);
 }

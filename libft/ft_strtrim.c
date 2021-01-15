@@ -6,7 +6,7 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:55:25 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/01/13 17:38:36 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/01/15 15:10:19 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strtrim(char *s1, char *set)
 {
-	int i;
-	int s1_len;
-	char *s2;
+	int		i;
+	int		s1_len;
+	char	*s2;
 
 	i = 0;
 	while (s1[i] && ft_strchr(set, s1[i]))

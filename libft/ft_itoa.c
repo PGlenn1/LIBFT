@@ -6,13 +6,13 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:33:05 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/01/06 14:33:50 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/01/15 13:29:46 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_len_n(int n)
+static int		ft_len_n(int n)
 {
 	int len_n;
 	int n_parsed;
@@ -29,46 +29,63 @@ static int	ft_len_n(int n)
 	return (len_n);
 }
 
-char		*ft_itoa(int n)
+static char		*ft_to_a(int n, int is_negative)
 {
 	int		i;
-	int		len_n;
 	int		n_parsed;
-	int		is_negative;
 	char	*s;
 
-	len_n = ft_len_n(n);
-	n_parsed = n;
-	is_negative = 0;
-	if (!(s = malloc((len_n + 1) * sizeof(char))))
+	if (!(s = (char *)malloc((ft_len_n(n) + 1) * sizeof(char))))
 		return (NULL);
-	if (n < 0)
-	{
-		if (n == -2147483648)
-		{
-			ft_memcpy(s, "-2147483648",  12);
-			return (s);
-		}
-		is_negative = 1;
+	n_parsed = n;
+	if (is_negative)
 		n_parsed *= -1;
-	}
 	i = 0;
-	while (i < len_n)
+	while (i < ft_len_n(n))
 	{
-		s[len_n - 1 - i] = ((n_parsed % 10) + '0');
+		s[ft_len_n(n) - 1 - i] = ((n_parsed % 10) + '0');
 		n_parsed = n_parsed / 10;
 		i++;
 	}
 	if (is_negative)
 		s[0] = '-';
 	s[i] = 0;
+	//printf("\ns: %s\n\n", s);
 	return (s);
 }
 
-//int	main(int argc, char **argv)
+char			*ft_itoa(int n)
+{
+	int		n_parsed;
+	int		is_negative;
+	char	*s;
+
+	n_parsed = n;
+	is_negative = 0;
+	if (!(s = malloc((ft_len_n(n) + 1) * sizeof(char))))
+		return (NULL);
+	if (n < 0)
+	{
+		if (n == -2147483648)
+		{
+			ft_memcpy(s, "-2147483648", 12);
+			return (s);
+		}
+		is_negative = 1;
+	}
+	return (ft_to_a(n, is_negative));
+}
+
+//int				main(int argc, char **argv)
 //{
 //	(void)argc;
 //	(void)argv;
-//	printf("result: %s\n", ft_itoa(-2147483648LL));
-//	printf("result: %s\n", ft_itoa(-2147483648LL));
+//	printf("result: %s\n", ft_itoa(-9));
+//	printf("result: %s\n", ft_itoa(10));
+//	printf("result: %s\n", ft_itoa(-10));
+//	printf("result: %s\n", ft_itoa(8124));
+//	printf("result: %s\n", ft_itoa(-9874));
+//	printf("result: %s\n", ft_itoa(543000));
+////	printf("result: %s\n", ft_itoa(2147483648LL));
+//	printf("result: %s\n", ft_itoa(543000));
 //}

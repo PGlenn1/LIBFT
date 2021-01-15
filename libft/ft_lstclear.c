@@ -6,7 +6,7 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 13:39:14 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/01/14 14:35:15 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/01/15 13:32:54 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	struct s_list *temp;
-	
+
 	if (!lst || !*lst || !del)
 		return ;
 	while (*lst)
