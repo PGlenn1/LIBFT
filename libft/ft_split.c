@@ -6,7 +6,7 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:43:31 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/01/15 16:53:41 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/01/15 17:41:05 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,28 +84,20 @@ char		**ft_split(char *s, char c)
 	j = 0;
 	if (!*s || !(tab = malloc((ft_word_count(s, c) + 1) * sizeof(char *))))
 		return (NULL);
-	if (s[i] != c)
-	{
-		if (!(tab[j] = ft_strndup(&s[i], ft_word_index(&s[i], c))))
-		{
-			ft_free_tab(tab);
-			return (NULL);
-		}
-		j++;
-		i = ft_word_index(&s[i], c);
-	}
 	while (s[i])
 	{
-		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
+		if (s[i] != c)
 		{
-			if (!(tab[j] = ft_strndup(&s[i + 1], ft_word_index(&s[i + 1], c))))
+			if (!(tab[j] = ft_strndup(&s[i], ft_word_index(&s[i], c))))
 			{
 				ft_free_tab(tab);
 				return (NULL);
 			}
 			j++;
 		}
-		i++;
+		i += ft_word_index(&s[i], c);
+		if (s[i] != '\0')
+			i++;
 	}
 	tab[j] = NULL;
 	return (tab);
