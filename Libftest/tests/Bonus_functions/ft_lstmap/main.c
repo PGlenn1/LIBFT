@@ -6,7 +6,7 @@
 /*   By: jtoty <jtoty@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 15:16:21 by jtoty             #+#    #+#             */
-/*   Updated: 2021/01/14 16:45:09 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/01/15 10:59:22 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,7 +163,7 @@ int				 	main(int argc, const char *argv[])
 		while (tmp)
 		{
 			printf("tmp = %s\n", tmp->content);
-			// ft_print_result();
+			ft_print_result(tmp);
 			tmp = tmp->next;
 		}
 		free_memory_lst_and_return(list);

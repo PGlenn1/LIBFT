@@ -6,7 +6,7 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:43:31 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/01/13 11:52:16 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/01/15 16:53:41 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ static int	ft_word_count(char *s, char c)
 			words++;
 		i++;
 	}
-	//printf("word_count: %d\n", words);
 	return (words);
 }
 
@@ -89,11 +88,11 @@ char		**ft_split(char *s, char c)
 	{
 		if (!(tab[j] = ft_strndup(&s[i], ft_word_index(&s[i], c))))
 		{
-		//	printf("tab[0]: %s\n", tab[0]);
 			ft_free_tab(tab);
 			return (NULL);
 		}
 		j++;
+		i = ft_word_index(&s[i], c);
 	}
 	while (s[i])
 	{
