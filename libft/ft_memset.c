@@ -6,7 +6,7 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:39:17 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/01/06 14:39:18 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/01/16 16:27:46 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memset(void *s, int c, size_t len)
 {
-	size_t			i;
+	unsigned long	i;
 	unsigned char	char_c;
 	unsigned char	*s2;
 
@@ -26,5 +26,15 @@ void	*ft_memset(void *s, int c, size_t len)
 		s2[i] = char_c;
 		i++;
 	}
-	return (s2);
+	return (s);
 }
+
+//int main()
+//{
+//	char *str;
+//
+//	str = "prouty";
+//	printf("initial string: %s\nresult: %s\n\n", str, ft_memset(str, 'a', 3));
+//	printf("initial string: %s\nexpected: %s\n\n", str, memset(str, 'a', 3));
+//	return (0);
+//}
