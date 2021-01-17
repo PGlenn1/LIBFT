@@ -6,7 +6,7 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:55:25 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/01/15 15:10:19 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/01/16 10:44:47 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,24 @@ char	*ft_strtrim(char *s1, char *set)
 	s1_len = ft_strlen(s1);
 	while (s1_len && ft_strchr(set, s1[s1_len - 1]))
 		s1_len--;
-	if ((s2 = ft_substr(s1, i, s1_len - i)))
+	if (s1_len != 0)
+	{
+		if (!(s2 = ft_substr(s1, i, s1_len - i)))
+			return (s2);
 		return (s2);
+	}
 	s2 = ft_strdup("");
 	return (s2);
 }
 
 //int	main()
 //{
-//	char set [] = "\t \n";
+//	char set [] = " ";
 //	char s1 [] = "lorem \n ipsum \t dolor \n sit \t amet";
 //	char s2 [] = "lorem ipsum dolor sit amet \n \t ";
 //	char s3 [] = "\n \t lorem ipsum dolor sit amet";
 //	char s4 [] = "  \n  \t  lorem \n ipsum \t dolor \n sit \t amet  \t \n ";
-//  char s5 [] = "         ";
+//	char s5 [] = "         ";
 //	printf("\nTEST 1\n\n");
 //	printf("result: %s\n", ft_strtrim(s1, set));
 //	printf("\nTEST 2\n\n");

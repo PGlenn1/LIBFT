@@ -6,7 +6,7 @@
 /*   By: jtoty <jtoty@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 15:16:21 by jtoty             #+#    #+#             */
-/*   Updated: 2021/01/15 10:59:22 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/01/16 14:44:15 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,6 @@
 #include <unistd.h>
 #include <string.h>
 
-static void			ft_print_result(t_list *elem)
- {
- 	int		len;
-
- 	len = 0;
- 	while (((char *)elem->content)[len])
- 		len++;
- 	write(1, elem->content, len);
- 	write(1, "\n", 1);
- }
 
 static t_list		*get_lst_new_elem(void *content)
 {
@@ -163,7 +153,7 @@ int				 	main(int argc, const char *argv[])
 		while (tmp)
 		{
 			printf("tmp = %s\n", tmp->content);
-			ft_print_result(tmp);
+			//ft_print_result(tmp);
 			tmp = tmp->next;
 		}
 		free_memory_lst_and_return(list);

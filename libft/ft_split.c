@@ -6,7 +6,7 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:43:31 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/01/15 17:41:05 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/01/16 11:40:51 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ char		**ft_split(char *s, char c)
 
 	i = 0;
 	j = 0;
-	if (!*s || !(tab = malloc((ft_word_count(s, c) + 1) * sizeof(char *))))
+	if (!s || !(tab = malloc((ft_word_count(s, c) + 1) * sizeof(char *))))
 		return (NULL);
 	while (s[i])
 	{
@@ -117,5 +117,7 @@ char		**ft_split(char *s, char c)
 //	ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'i');
 //	printf("\ntest 5\n\n");
 //	ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non     risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, d    olor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, e    uismod non, mi.", 'z');
+//	printf("\nTEST 6\n\n");
+//	ft_split("", 'z');
 //	return (0);
 //}
