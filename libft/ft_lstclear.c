@@ -16,8 +16,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	struct s_list *temp;
 
-	if (!lst || !*lst || !del)
-		return ;
+//	if (!lst || !*lst || !del)
+//		return ;
 	while (*lst)
 	{
 		temp = (*lst)->next;

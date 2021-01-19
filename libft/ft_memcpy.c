@@ -20,8 +20,8 @@ void	*ft_memcpy(void *dst, void *src, size_t n)
 
 	dst2 = (unsigned char *)dst;
 	src2 = (unsigned char *)src;
-	if (!dst || !src)
-		return (NULL);
+//	if (!dst || !src)
+//		return (NULL);
 	i = 0;
 	while (i < n)
 	{
