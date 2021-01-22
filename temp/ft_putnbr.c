@@ -1,30 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/06 14:39:17 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/01/16 16:27:46 by gpiriou          ###   ########.fr       */
+/*   Created: 2020/10/15 08:49:36 by gpiriou           #+#    #+#             */
+/*   Updated: 2020/10/21 18:20:25 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-void	*ft_memset(void *s, int c, size_t len)
+void	ft_putchar(char c)
 {
-	unsigned long	i;
-	unsigned char	char_c;
-	unsigned char	*s2;
+	write(1, &c, 1);
+}
 
-	char_c = (unsigned char)c;
-	s2 = (unsigned char *)s;
-	i = 0;
-	while (i < len)
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
 	{
-		s2[i] = char_c;
-		i++;
+		write(1, "-2147483648", 11);
 	}
-	return (s);
+	else
+	{
+		if (nb < 0)
+		{
+			ft_putchar('-');
+			nb = nb * -1;
+		}
+		if (nb >= 0 && nb <= 9)
+		{
+			ft_putchar(nb + '0');
+		}
+		else
+		{
+			ft_putnbr(nb / 10);
+			ft_putchar((nb % 10) + '0');
+		}
+	}
 }

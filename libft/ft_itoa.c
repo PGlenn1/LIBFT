@@ -29,14 +29,11 @@ static int		ft_len_n(int n)
 	return (len_n);
 }
 
-static char		*ft_to_a(int n, int is_negative)
+static char		*ft_to_a(char *s, int n, int is_negative)
 {
 	int		i;
 	int		n_parsed;
-	char	*s;
 
-	if (!(s = (char *)malloc((ft_len_n(n) + 1) * sizeof(char))))
-		return (NULL);
 	n_parsed = n;
 	if (is_negative)
 		n_parsed *= -1;
@@ -50,17 +47,15 @@ static char		*ft_to_a(int n, int is_negative)
 	if (is_negative)
 		s[0] = '-';
 	s[i] = 0;
-	//printf("\ns: %s\n\n", s);
 	return (s);
 }
 
 char			*ft_itoa(int n)
 {
-	int		n_parsed;
 	int		is_negative;
 	char	*s;
+	char	*res;
 
-	n_parsed = n;
 	is_negative = 0;
 	if (!(s = malloc((ft_len_n(n) + 1) * sizeof(char))))
 		return (NULL);
@@ -73,19 +68,6 @@ char			*ft_itoa(int n)
 		}
 		is_negative = 1;
 	}
-	return (ft_to_a(n, is_negative));
+	res = ft_to_a(s, n, is_negative);
+	return (res);
 }
-
-//int				main(int argc, char **argv)
-//{
-//	(void)argc;
-//	(void)argv;
-//	printf("result: %s\n", ft_itoa(-9));
-//	printf("result: %s\n", ft_itoa(10));
-//	printf("result: %s\n", ft_itoa(-10));
-//	printf("result: %s\n", ft_itoa(8124));
-//	printf("result: %s\n", ft_itoa(-9874));
-//	printf("result: %s\n", ft_itoa(543000));
-////	printf("result: %s\n", ft_itoa(2147483648LL));
-//	printf("result: %s\n", ft_itoa(543000));
-//}

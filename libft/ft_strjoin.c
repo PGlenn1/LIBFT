@@ -40,10 +40,3 @@ char		*ft_strjoin(char *s1, char *s2)
 	ft_strcat(ft_strcat(s3, s1), s2);
 	return (s3);
 }
-
-//int	main(int argc, char **argv)
-//{
-//	(void)argc;
-//	printf("result: %s\n", ft_strjoin(argv[1], argv[2]));
-//	return (0);
-//}

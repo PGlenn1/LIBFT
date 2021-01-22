@@ -35,24 +35,3 @@ char	*ft_strtrim(char *s1, char *set)
 	s2 = ft_strdup("");
 	return (s2);
 }
-
-//int	main()
-//{
-//	char set [] = " ";
-//	char s1 [] = "lorem \n ipsum \t dolor \n sit \t amet";
-//	char s2 [] = "lorem ipsum dolor sit amet \n \t ";
-//	char s3 [] = "\n \t lorem ipsum dolor sit amet";
-//	char s4 [] = "  \n  \t  lorem \n ipsum \t dolor \n sit \t amet  \t \n ";
-//	char s5 [] = "         ";
-//	printf("\nTEST 1\n\n");
-//	printf("result: %s\n", ft_strtrim(s1, set));
-//	printf("\nTEST 2\n\n");
-//	printf("result: %s\n", ft_strtrim(s2, set));
-//	printf("\nTEST 3\n\n");
-//	printf("result: %s\n", ft_strtrim(s3, set));
-//  	printf("\nTEST 4\n\n");
-//  	printf("result: %s\n", ft_strtrim(s4, set));
-//	printf("\nTEST 5\n\n");
-//	printf("result: %s\n", ft_strtrim(s5, set));
-//	return (0);
-//}

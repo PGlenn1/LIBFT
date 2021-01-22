@@ -73,12 +73,3 @@ int			ft_atoi(char *str)
 		res *= -1;
 	return (res);
 }
-
-//int	main(int argc, char **argv)
-//{
-//	(void)argc;
-//	(void)argv;
-//	printf("result: %d\n", ft_atoi("\e475"));
-//	printf("expected: %d\n", atoi("\e475"));
-//	return (0);
-//}

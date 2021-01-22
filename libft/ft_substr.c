@@ -18,7 +18,6 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	unsigned int	s_unsigned;
 	char			*str;
 
-	
 	if (!s)
 		return (NULL);
 	s_unsigned = (unsigned int)ft_strlen(s);
@@ -33,15 +32,3 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	str[i] = '\0';
 	return (str);
 }
-
-//int	main()
-//{
-//	char str[] = "lorem ipsum dolor sit amet";
-//
-//	printf("result test 1: %s\n", ft_substr(str, 0, 10));
-//	printf("result test 2: %s\n", ft_substr(str, 7, 10));
-//	printf("result test 3: %s\n", ft_substr(str, 7, 0));
-//	printf("result test 4: %s\n", ft_substr(str, 0, 0));
-//	printf("result test 5: %s\n", ft_substr(str, 400, 20));
-//	return (0);
-//}

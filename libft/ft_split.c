@@ -102,22 +102,3 @@ char		**ft_split(char *s, char c)
 	tab[j] = NULL;
 	return (tab);
 }
-
-//int		main(int argc, char **argv)
-//{
-//	(void)argc;
-//	(void)argv;
-//	printf("\ntest 1\n\n");
-//	ft_split("         ", ' ');
-//	printf("\ntest 2\n\n");
-//	ft_split("lorem ipsum dolor sit amet, consec    tetur adipiscing elit. Sed non risus. Suspendisse", ' ');
-//	printf("\ntest 3\n\n");
-//	ft_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing eli    t. Sed non risus. Suspendisse   ", ' ');
-//	printf("\ntest 4\n\n");
-//	ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'i');
-//	printf("\ntest 5\n\n");
-//	ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non     risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, d    olor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, e    uismod non, mi.", 'z');
-//	printf("\nTEST 6\n\n");
-//	ft_split("", 'z');
-//	return (0);
-//}
