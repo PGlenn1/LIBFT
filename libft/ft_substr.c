@@ -6,7 +6,7 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:55:57 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/01/16 11:05:54 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/01/23 11:42:34 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	s_unsigned = (unsigned int)ft_strlen(s);
-	i = 0;
 	if (!(str = malloc((len + 1) * sizeof(char))))
 		return (NULL);
+	i = 0;
 	while (i < len && start < s_unsigned)
 	{
 		str[i] = s[start + i];
