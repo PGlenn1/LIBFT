@@ -39,6 +39,7 @@ int				ft_islower(int c);
 int				ft_isprint(int c);
 int				ft_isupper(int c);
 char			*ft_itoa(int n);
+char			*ft_itoa_ui(unsigned int n);
 char			*ft_itoa_base(char *base, int n);
 char			*ft_itoa_base_lu(char *base, unsigned long n);
 char			*ft_itoa_base_ui(char *base, unsigned int n);
