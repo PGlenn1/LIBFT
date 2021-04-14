@@ -26,7 +26,7 @@ ft_skip_whitespace.c ft_skip_non_printable.c ft_atoi_lu.c ft_free_tab.c\
 ft_swap.c ft_strcat.c ft_free_all.c ft_len_n_base.c ft_len_n.c ft_islower.c\
 ft_islower.c ft_isupper.c ft_strndup.c ft_itoa_base.c ft_valid_base.c\
 ft_itoa_base_lu.c ft_print_address.c ft_print_list.c ft_word_count.c\
-ft_putnbr_base.c ft_len_n_base_lu.c\
+ft_putnbr_base.c ft_len_n_base_lu.c ft_len_n_base_ui.c ft_itoa_base_ui.c\
 
 OBJ 	= $(SRC:.c=.o)
 
