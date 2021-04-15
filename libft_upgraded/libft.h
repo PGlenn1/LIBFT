@@ -47,6 +47,7 @@ int				ft_len_n_base(char *base, int n);
 int				ft_len_n_base_lu(char *base, unsigned long n);
 int				ft_len_n_base_ui(char *base, unsigned int n);
 int				ft_len_n(int n);
+unsigned int	ft_len_n_ui(unsigned int n);
 void			ft_lstadd_back(t_list **alst, t_list *new);
 void			ft_lstadd_front(t_list **alst, t_list *new);
 void			ft_lstclear(t_list **lt, void (*del)(void *));
