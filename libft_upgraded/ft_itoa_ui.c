@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa_ui.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/15 11:36:19 by gpiriou           #+#    #+#             */
+/*   Updated: 2021/04/15 11:36:50 by gpiriou          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char		*ft_to_a_ui(char *s, unsigned int n)
@@ -17,7 +29,7 @@ char		*ft_to_a_ui(char *s, unsigned int n)
 	return (s);
 }
 
-char			*ft_itoa_ui(unsigned int n)
+char		*ft_itoa_ui(unsigned int n)
 {
 	char	*s;
 	char	*res;

@@ -6,13 +6,13 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:33:05 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/02/17 10:38:50 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/04/15 12:48:08 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_to_a(char *s, int n, int is_negative)
+char	*ft_to_a(char *s, int n, int is_negative)
 {
 	int		i;
 	int		n_parsed;
@@ -33,7 +33,7 @@ char		*ft_to_a(char *s, int n, int is_negative)
 	return (s);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	int		is_negative;
 	char	*s;

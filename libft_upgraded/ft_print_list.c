@@ -6,7 +6,7 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 13:56:12 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/02/17 14:12:37 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/04/15 12:51:54 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_print_list(t_list **lst)
 {
-	int i;
-	struct s_list *probe;
+	int				i;
+	struct s_list	*probe;
 
 	probe = *lst;
 	i = 0;

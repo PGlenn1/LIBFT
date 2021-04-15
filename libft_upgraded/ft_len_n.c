@@ -6,7 +6,7 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 10:36:41 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/02/17 10:37:59 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/04/15 11:35:48 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_len_n(int n)
 	n_parsed = n;
 	while (n_parsed / 10 != 0)
 	{
-		n_parsed = n_parsed / 10; 
+		n_parsed = n_parsed / 10;
 		len_n++;
 	}
 	if (n < 0)

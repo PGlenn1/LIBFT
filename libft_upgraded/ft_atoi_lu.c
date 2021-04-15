@@ -6,7 +6,7 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 10:34:56 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/02/17 10:34:58 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/04/15 11:32:33 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 unsigned long	ft_atoi_lu(char *str)
 {
-	int i;
-	unsigned long res;
-	int is_negative;
+	int				i;
+	unsigned long	res;
+	int				is_negative;
 
 	i = ft_skip_whitespace(str);
 	res = 0;

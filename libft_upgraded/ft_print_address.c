@@ -6,7 +6,7 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 14:01:32 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/02/17 14:11:59 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/04/15 13:02:59 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_print_address(void *ptr)
 {
-	char	*ptr_to_str;
-	char	*str;
-	unsigned long ptr2;
-	int		len_str;
-	int		str_diff;
-	
+	char			*ptr_to_str;
+	char			*str;
+	unsigned long	ptr2;
+	int				len_str;
+	int				str_diff;
+
 	ptr2 = (unsigned long)ptr;
 	ptr_to_str = ft_itoa_base_lu("0123456789abcdef", ptr2);
 	len_str = ft_strlen(ptr_to_str);

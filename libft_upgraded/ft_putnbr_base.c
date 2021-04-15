@@ -6,7 +6,7 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 13:43:42 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/02/17 14:21:15 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/04/15 12:53:19 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		is_in_base(char *base_from, char nbr)
 	while (base_from[i])
 	{
 		if (nbr == base_from[i])
-			return (1);	
+			return (1);
 		i++;
 	}
 	return (0);
@@ -58,9 +58,9 @@ int		get_len(char *base, int nbr, char *str, int index)
 
 void	ft_putnbr_base(char *base, int nbr, char *str, int index)
 {
-	int base_len;
-	int j;
-	char save;
+	int		base_len;
+	int		j;
+	char	save;
 
 	j = 0;
 	while (base[j])

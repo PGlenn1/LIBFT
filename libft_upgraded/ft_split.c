@@ -6,13 +6,13 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:43:31 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/02/17 14:15:42 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/04/15 13:01:09 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_word_index(char *s, char c)
+int		ft_word_index(char *s, char c)
 {
 	int i;
 
@@ -22,7 +22,7 @@ int	ft_word_index(char *s, char c)
 	return (i);
 }
 
-char		**ft_split(char *s, char c)
+char	**ft_split(char *s, char c)
 {
 	int		i;
 	int		j;
