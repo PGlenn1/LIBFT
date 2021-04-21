@@ -24,7 +24,5 @@ int		ft_len_n_ui(unsigned int n)
 		n_parsed = n_parsed / 10;
 		len_n++;
 	}
-	if (n < 0)
-		len_n++;
 	return (len_n);
 }

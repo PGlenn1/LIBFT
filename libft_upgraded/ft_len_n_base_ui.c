@@ -17,6 +17,8 @@ int		ft_len_n_base_ui(char *base, unsigned int n)
 	int		base_len;
 	int		len_n_base;
 
+	if (n == 0)
+		return (1);
 	base_len = ft_strlen(base);
 	len_n_base = 0;
 	while (n != 0)

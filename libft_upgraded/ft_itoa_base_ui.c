@@ -6,7 +6,7 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 11:28:51 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/02/17 11:28:53 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/04/21 12:35:28 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ char	*ft_itoa_base_ui(char *base, unsigned int n)
 	if (n == 0)
 	{
 		s[0] = '0';
+		s[1] = '\0';
 		return (s);
 	}
 	i = 0;
 	base_len = ft_strlen(base);
 	while (i < len_n_base)
 	{
-		s[len_n_base - 1 - i] = base[n % base_len];
+		s[len_n_base - 1 - i++] = base[n % base_len];
 		n /= base_len;
-		i++;
 	}
 	s[i] = '\0';
 	return (s);

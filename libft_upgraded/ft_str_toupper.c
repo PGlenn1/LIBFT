@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_str_toupper.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/06 14:41:01 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/04/21 12:34:59 by gpiriou          ###   ########.fr       */
+/*   Created: 2021/04/15 17:02:02 by gpiriou           #+#    #+#             */
+/*   Updated: 2021/04/15 17:02:30 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+char	*ft_str_toupper(char *str)
 {
 	int i;
 
-	if (!s)
-		return ;
 	i = 0;
-	while (s[i])
+	while (str[i])
 	{
-		write(fd, &s[i], 1);
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] -= 32;
 		i++;
 	}
+	return (str);
 }

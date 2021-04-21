@@ -6,7 +6,7 @@
 #    By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/06 17:50:35 by gpiriou           #+#    #+#              #
-#    Updated: 2021/02/17 14:18:22 by gpiriou          ###   ########.fr        #
+#    Updated: 2021/04/15 17:00:43 by gpiriou          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ ft_swap.c ft_strcat.c ft_free_all.c ft_len_n_base.c ft_len_n.c ft_islower.c\
 ft_islower.c ft_isupper.c ft_strndup.c ft_itoa_base.c ft_valid_base.c\
 ft_itoa_base_lu.c ft_print_address.c ft_print_list.c ft_word_count.c\
 ft_putnbr_base.c ft_len_n_base_lu.c ft_len_n_base_ui.c ft_itoa_base_ui.c\
-ft_itoa_ui.c ft_len_n_ui.c\
+ft_itoa_ui.c ft_len_n_ui.c ft_str_toupper.c\
 
 OBJ 	= $(SRC:.c=.o)
 

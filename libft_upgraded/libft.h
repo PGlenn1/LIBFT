@@ -6,7 +6,7 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 15:30:41 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/04/15 12:59:11 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/04/15 17:01:31 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ char			*ft_strtrim(char *s1, char *set);
 char			*ft_substr(char *s, unsigned int start, size_t len);
 void			ft_swap(char **str1, char **str2);
 int				ft_tolower(int c);
+char			*ft_str_toupper(char *str);
 int				ft_toupper(int c);
 int				ft_valid_base(char *base);
 int				ft_word_count(char *s, char c);
