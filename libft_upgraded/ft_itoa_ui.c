@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-char		*ft_to_a_ui(char *s, unsigned int n)
+char	*ft_to_a_ui(char *s, unsigned int n)
 {
-	int		i;
-	int		n_parsed;
+	int	i;
+	int	n_parsed;
 
 	n_parsed = n;
 	i = 0;
@@ -29,12 +29,13 @@ char		*ft_to_a_ui(char *s, unsigned int n)
 	return (s);
 }
 
-char		*ft_itoa_ui(unsigned int n)
+char	*ft_itoa_ui(unsigned int n)
 {
 	char	*s;
 	char	*res;
 
-	if (!(s = malloc((ft_len_n(n) + 1) * sizeof(char))))
+	s = malloc((ft_len_n(n) + 1) * sizeof(char));
+	if (!s)
 		return (NULL);
 	res = ft_to_a_ui(s, n);
 	return (res);

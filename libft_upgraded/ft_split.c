@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-int		ft_word_index(char *s, char c)
+int	ft_word_index(char *s, char c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i] && s[i] != c)
@@ -22,21 +22,19 @@ int		ft_word_index(char *s, char c)
 	return (i);
 }
 
-char	**ft_split(char *s, char c)
+char	**ft_real_split(char **tab, char *s, char c)
 {
-	int		i;
-	int		j;
-	char	**tab;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
-	if (!s || !(tab = malloc((ft_word_count(s, c) + 1) * sizeof(char *))))
-		return (NULL);
 	while (s[i])
 	{
 		if (s[i] != c)
 		{
-			if (!(tab[j] = ft_strndup(&s[i], ft_word_index(&s[i], c))))
+			tab[j] = ft_strndup(&s[i], ft_word_index(&s[i], c));
+			if (!tab[j])
 			{
 				ft_free_tab(tab);
 				return (NULL);
@@ -48,5 +46,16 @@ char	**ft_split(char *s, char c)
 			i++;
 	}
 	tab[j] = NULL;
+	return (tab);
+}
+
+char	**ft_split(char *s, char c)
+{
+	char	**tab;
+
+	if (!s)
+		return (NULL);
+	tab = malloc((ft_word_count(s, c) + 1) * sizeof(char *));
+	tab = ft_real_split(tab, s, c);
 	return (tab);
 }

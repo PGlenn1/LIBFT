@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-int		ft_len_n_base_ui(char *base, unsigned int n)
+int	ft_len_n_base_ui(char *base, unsigned int n)
 {
-	int		base_len;
-	int		len_n_base;
+	int	base_len;
+	int	len_n_base;
 
 	if (n == 0)
 		return (1);

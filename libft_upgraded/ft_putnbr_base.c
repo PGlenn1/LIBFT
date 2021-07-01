@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-int		is_in_base(char *base_from, char nbr)
+int	is_in_base(char *base_from, char nbr)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (base_from[i])
@@ -26,9 +26,9 @@ int		is_in_base(char *base_from, char nbr)
 	return (0);
 }
 
-int		index_value(char *base_from, char nbr)
+int	index_value(char *base_from, char nbr)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!is_in_base(base_from, nbr))
@@ -38,10 +38,10 @@ int		index_value(char *base_from, char nbr)
 	return (i);
 }
 
-int		get_len(char *base, int nbr, char *str, int index)
+int	get_len(char *base, int nbr, char *str, int index)
 {
-	int base_len;
-	int j;
+	int	base_len;
+	int	j;
 
 	j = 0;
 	while (base[j])

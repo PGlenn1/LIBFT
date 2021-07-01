@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-int		ft_len_n(int n)
+int	ft_len_n(int n)
 {
-	int len_n;
-	int n_parsed;
+	int	len_n;
+	int	n_parsed;
 
 	len_n = 1;
 	n_parsed = n;

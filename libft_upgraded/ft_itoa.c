@@ -40,7 +40,8 @@ char	*ft_itoa(int n)
 	char	*res;
 
 	is_negative = 0;
-	if (!(s = malloc((ft_len_n(n) + 1) * sizeof(char))))
+	s = malloc((ft_len_n(n) + 1) * sizeof(char));
+	if (!s)
 		return (NULL);
 	if (n < 0)
 	{

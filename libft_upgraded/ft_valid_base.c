@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-int		ft_valid_base(char *base)
+int	ft_valid_base(char *base)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	j = 0;

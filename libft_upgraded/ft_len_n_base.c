@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-int		ft_len_n_base(char *base, int n)
+int	ft_len_n_base(char *base, int n)
 {
-	int		base_len;
-	int		len_n_base;
+	int	base_len;
+	int	len_n_base;
 
 	base_len = ft_strlen(base);
 	len_n_base = 0;

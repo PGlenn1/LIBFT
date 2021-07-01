@@ -23,7 +23,8 @@ void	ft_print_address(void *ptr)
 	ptr2 = (unsigned long)ptr;
 	ptr_to_str = ft_itoa_base_lu("0123456789abcdef", ptr2);
 	len_str = ft_strlen(ptr_to_str);
-	if (!(str = (char *)malloc((17) * sizeof(char))))
+	str = (char *)malloc((17) * sizeof(char));
+	if (!str)
 		return ;
 	str = ft_memset(str, '0', 16);
 	str[16] = '\0';

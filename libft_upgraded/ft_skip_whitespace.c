@@ -14,17 +14,17 @@
 
 int	ft_skip_whitespace(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] == '\t'
-			|| str[i] == '\n'
-			|| str[i] == '\r'
-			|| str[i] == '\v'
-			|| str[i] == '\f'
-			|| str[i] == '\b'
-			|| str[i] == ' '
-			|| str[i] > 126)
+		|| str[i] == '\n'
+		|| str[i] == '\r'
+		|| str[i] == '\v'
+		|| str[i] == '\f'
+		|| str[i] == '\b'
+		|| str[i] == ' '
+		|| str[i] == 127)
 		i++;
 	return (i);
 }

@@ -14,7 +14,7 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	struct s_list *temp;
+	struct s_list	*temp;
 
 	while (*lst)
 	{

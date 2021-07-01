@@ -14,7 +14,7 @@
 
 void	*ft_free_all(char **tab)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (tab[i])
