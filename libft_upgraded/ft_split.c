@@ -56,6 +56,8 @@ char	**ft_split(char *s, char c)
 	if (!s)
 		return (NULL);
 	tab = malloc((ft_word_count(s, c) + 1) * sizeof(char *));
+	if (!tab)
+		return(NULL);
 	tab = ft_real_split(tab, s, c);
 	return (tab);
 }
