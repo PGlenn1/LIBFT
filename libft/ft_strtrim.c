@@ -28,7 +28,8 @@ char	*ft_strtrim(char *s1, char *set)
 		s1_len--;
 	if (s1_len != 0)
 	{
-		if (!(s2 = ft_substr(s1, i, s1_len - i)))
+		s2 = ft_substr(s1, i, s1_len - i);
+		if (!s2)
 			return (s2);
 		return (s2);
 	}

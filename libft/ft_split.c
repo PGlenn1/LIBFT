@@ -6,15 +6,15 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:43:31 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/01/16 11:40:51 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/04/15 13:01:09 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_word_index(char *s, char c)
+int	ft_word_index(char *s, char c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i] && s[i] != c)
@@ -22,73 +22,19 @@ static int	ft_word_index(char *s, char c)
 	return (i);
 }
 
-static char	*ft_strndup(char *s1, int n)
+char	**ft_real_split(char **tab, char *s, char c)
 {
-	int		i;
-	char	*s1_dup;
-
-	i = 0;
-	if (!(s1_dup = malloc((n + 1) * sizeof(char))))
-		return (NULL);
-	while (s1[i] && i < n)
-	{
-		s1_dup[i] = s1[i];
-		i++;
-	}
-	s1_dup[i] = '\0';
-	return (s1_dup);
-}
-
-static void	ft_free_tab(char **tab)
-{
-	int i;
-
-	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab[i]);
-	free(tab);
-	return ;
-}
-
-static int	ft_word_count(char *s, char c)
-{
-	int i;
-	int	words;
-
-	i = 0;
-	words = 0;
-	while (s[i] == c)
-		i++;
-	if (s[i] != c && s[i])
-		words++;
-	while (s[i])
-	{
-		if (s[i] == c && s[i + 1] != c && s[i + 1] != 0)
-			words++;
-		i++;
-	}
-	return (words);
-}
-
-char		**ft_split(char *s, char c)
-{
-	int		i;
-	int		j;
-	char	**tab;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
-	if (!s || !(tab = malloc((ft_word_count(s, c) + 1) * sizeof(char *))))
-		return (NULL);
 	while (s[i])
 	{
 		if (s[i] != c)
 		{
-			if (!(tab[j] = ft_strndup(&s[i], ft_word_index(&s[i], c))))
+			tab[j] = ft_strndup(&s[i], ft_word_index(&s[i], c));
+			if (!tab[j])
 			{
 				ft_free_tab(tab);
 				return (NULL);
@@ -100,5 +46,18 @@ char		**ft_split(char *s, char c)
 			i++;
 	}
 	tab[j] = NULL;
+	return (tab);
+}
+
+char	**ft_split(char *s, char c)
+{
+	char	**tab;
+
+	if (!s)
+		return (NULL);
+	tab = malloc((ft_word_count(s, c) + 1) * sizeof(char *));
+	if (!tab)
+		return(NULL);
+	tab = ft_real_split(tab, s, c);
 	return (tab);
 }

@@ -6,7 +6,7 @@
 /*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:53:16 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/01/08 09:58:10 by gpiriou          ###   ########.fr       */
+/*   Updated: 2021/03/16 14:57:46 by gpiriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	ft_strncmp(char *s1, char *s2, size_t n)
 	unsigned char	*char_s2;
 
 	i = 0;
-	char_s1 = (unsigned char*)s1;
-	char_s2 = (unsigned char*)s2;
+	char_s1 = (unsigned char *)s1;
+	char_s2 = (unsigned char *)s2;
 	while ((char_s1[i] || char_s2[i]) && i < n)
 	{
 		if (char_s1[i] != char_s2[i])

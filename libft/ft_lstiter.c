@@ -14,7 +14,7 @@
 
 void	ft_str_mod(void *s)
 {
-	char *str;
+	char	*str;
 
 	str = (char *)s;
 	if (str[0] != '\0')
