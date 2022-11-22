@@ -4,3 +4,4 @@
 *.o
 .DS_Store
 *.swp
+not_integrated/
