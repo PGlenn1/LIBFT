@@ -16,11 +16,9 @@ unsigned long	ft_atoi_lu(char *str)
 {
 	int				i;
 	unsigned long	res;
-	int				is_negative;
 
 	i = ft_skip_whitespace(str);
 	res = 0;
-	is_negative = 0;
 	if (str[i] == '+')
 		i++;
 	while (str[i] >= '0' && str[i] <= '9')

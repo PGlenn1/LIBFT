@@ -47,26 +47,26 @@ static	int	ft_strcmp(char *s1, char *s2)
 	return (0);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *nptr)
 {
 	int	i;
 	int	res;
 	int	is_negative;
 
 	res = 0;
-	if (!ft_strcmp(str, "-2147483648"))
+	if (!ft_strcmp((char *)nptr, "-2147483648"))
 		return (-2147483648);
 	is_negative = 0;
-	i = ft_is_whitespace(str);
-	if (str[i] == '+' || str[i] == '-')
+	i = ft_is_whitespace((char *)nptr);
+	if (nptr[i] == '+' || nptr[i] == '-')
 	{
-		if (str[i] == '-')
+		if (nptr[i] == '-')
 			is_negative = 1;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		res = res * 10 + (str[i] - '0');
+		res = res * 10 + (nptr[i] - '0');
 		i++;
 	}
 	if (is_negative)

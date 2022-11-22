@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: glpiriou <glpiriou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:55:16 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/01/06 14:55:17 by gpiriou          ###   ########.fr       */
+/*   Updated: 2022/11/22 18:18:34 by glpiriou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strrchr(char *s, int c)
 	int	len;
 
 	len = ft_strlen(s);
+	while (c > 255)
+		c -= 256;
 	while (len >= 0)
 	{
 		if (s[len] == c)

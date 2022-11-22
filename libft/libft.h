@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: glpiriou <glpiriou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 15:30:41 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/04/15 17:01:31 by gpiriou          ###   ########.fr       */
+/*   Updated: 2022/11/22 16:17:32 by glpiriou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
-int				ft_atoi(char *str);
+int				ft_atoi(const char *nptr);
 unsigned long	ft_atoi_lu(char *str);
 void			ft_bzero(void *s, size_t n);
 void			*ft_calloc(size_t count, size_t size);
@@ -60,7 +60,7 @@ int				ft_lstsize(t_list *lst);
 void			*ft_memccpy(void *dst, void *src, int c, size_t n);
 void			*ft_memchr(void *s, int c, size_t n);
 int				ft_memcmp(void *s1, void *s2, size_t n);
-void			*ft_memcpy(void	*dst, void *src, size_t n);
+void			*ft_memcpy(void	*dst, const void *src, size_t n);
 void			*ft_memmove(void *dst, void *src, size_t len);
 void			*ft_memset(void *s, int c, size_t len);
 void			ft_print_list(t_list **lst);
@@ -83,6 +83,7 @@ size_t			ft_strlcat(char *dst, char *src, size_t dstsize);
 size_t			ft_strlcpy(char *dst, char *src, size_t dstsize);
 int				ft_strlen(char *str);
 char			*ft_strmapi(char *s, char (*f)(unsigned int, char));
+void 			ft_striteri(char *s, void (*f)(unsigned int, char *));
 int				ft_strncmp(char *s1, char *s2, size_t n);
 char			*ft_strnstr(char *haystack, char *needle, size_t len);
 char			*ft_strrchr(char *s, int c);
