@@ -6,7 +6,7 @@
 /*   By: glpiriou <glpiriou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 15:30:41 by gpiriou           #+#    #+#             */
-/*   Updated: 2022/11/22 16:17:32 by glpiriou         ###   ########.fr       */
+/*   Updated: 2022/11/24 16:26:20 by glpiriou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <string.h>
 # include <stdio.h>
 # include <ctype.h>
+# include <stdint.h>
 
 typedef struct s_list
 {
