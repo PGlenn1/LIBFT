@@ -6,7 +6,7 @@
 /*   By: glpiriou <glpiriou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:43:31 by gpiriou           #+#    #+#             */
-/*   Updated: 2022/11/27 18:28:06 by glpiriou         ###   ########.fr       */
+/*   Updated: 2022/11/27 19:52:13 by glpiriou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ char	**fill_tab(char **tab, char *s, char c)
 			i++;
 	}
 	tab[j] = NULL;
+	return (tab);
 }
 
 char	**ft_split(char *s, char c)

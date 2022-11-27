@@ -6,7 +6,7 @@
 /*   By: glpiriou <glpiriou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 15:30:41 by gpiriou           #+#    #+#             */
-/*   Updated: 2022/11/27 19:55:35 by glpiriou         ###   ########.fr       */
+/*   Updated: 2022/11/27 20:22:51 by glpiriou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct	s_list
 
 int				ft_atoi(const char *str);
 void			ft_bzero(void *s, size_t n);
-void			*ft_calloc(size_t count, size_t size);
+void			*ft_calloc(size_t nmemb, size_t size);
 int				ft_isalnum(int c);
 int				ft_isalpha(int c);
 int				ft_isascii(int c);
@@ -43,9 +43,9 @@ t_list			*ft_lstlast(t_list *lst);
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void(*del)(void *));
 t_list			*ft_lstnew(void *content);
 int				ft_lstsize(t_list *lst);
-void			*ft_memccpy(void *dst, void *src, int c, size_t n);
+void			*ft_memccpy(void *dest, void *src, int c, size_t n);
 void			*ft_memchr(void *s, int c, size_t n);
-int				ft_memcmp(void *s1, const void *s2, size_t n);
+int				ft_memcmp(const void *s1, const void *s2, size_t n);
 void			*ft_memcpy(void	*dest, const void *src, size_t n);
 void			*ft_memmove(void *dst, void *src, size_t len);
 void			*ft_memset(void *s, int c, size_t len);
@@ -56,10 +56,10 @@ void			ft_putstr_fd(char *s, int fd);
 char			**ft_split(char *s, char c);
 char			*ft_strchr(char *s, int c);
 char			*ft_strdup(char *s1);
-void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+void			ft_striteri(char *s, void (*f)(unsigned int, char *));
 char			*ft_strjoin(char *s1, char *s2);
-size_t			ft_strlcat(char *dst, char *src, size_t dstsize);
-size_t			ft_strlcpy(char *dst, char *src, size_t dstsize);
+size_t			ft_strlcat(char *dst, const char *src, size_t size);
+size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 int				ft_strlen(char *str);
 char			*ft_strmapi(char *s, char (*f)(unsigned int, char));
 int				ft_strncmp(char *s1, char *s2, size_t n);
