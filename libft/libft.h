@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: glpiriou <glpiriou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 15:30:41 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/02/16 15:10:27 by gpiriou          ###   ########.fr       */
+/*   Updated: 2022/11/27 19:55:35 by glpiriou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
-int				ft_atoi(char *str);
+int				ft_atoi(const char *str);
 void			ft_bzero(void *s, size_t n);
 void			*ft_calloc(size_t count, size_t size);
 int				ft_isalnum(int c);
@@ -45,8 +45,8 @@ t_list			*ft_lstnew(void *content);
 int				ft_lstsize(t_list *lst);
 void			*ft_memccpy(void *dst, void *src, int c, size_t n);
 void			*ft_memchr(void *s, int c, size_t n);
-int				ft_memcmp(void *s1, void *s2, size_t n);
-void			*ft_memcpy(void	*dst, void *src, size_t n);
+int				ft_memcmp(void *s1, const void *s2, size_t n);
+void			*ft_memcpy(void	*dest, const void *src, size_t n);
 void			*ft_memmove(void *dst, void *src, size_t len);
 void			*ft_memset(void *s, int c, size_t len);
 void			ft_putchar_fd(char c, int fd);
@@ -56,6 +56,7 @@ void			ft_putstr_fd(char *s, int fd);
 char			**ft_split(char *s, char c);
 char			*ft_strchr(char *s, int c);
 char			*ft_strdup(char *s1);
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char			*ft_strjoin(char *s1, char *s2);
 size_t			ft_strlcat(char *dst, char *src, size_t dstsize);
 size_t			ft_strlcpy(char *dst, char *src, size_t dstsize);
