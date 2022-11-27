@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: glpiriou <glpiriou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:56:42 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/01/16 15:07:52 by gpiriou          ###   ########.fr       */
+/*   Updated: 2022/11/27 17:22:43 by glpiriou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_isupper(int c)
 		return (0);
 }
 
-int			ft_tolower(int c)
+int	ft_tolower(int c)
 {
 	if (ft_isupper(c))
 		c += 32;

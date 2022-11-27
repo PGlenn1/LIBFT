@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: glpiriou <glpiriou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:30:56 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/01/06 17:17:30 by gpiriou          ###   ########.fr       */
+/*   Updated: 2022/11/27 17:14:57 by glpiriou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	ft_islower(int c)
 		return (0);
 }
 
-int			ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
 	if (ft_isupper(c) || ft_islower(c))
 		return (1);

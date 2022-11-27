@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpiriou <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: glpiriou <glpiriou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:54:27 by gpiriou           #+#    #+#             */
-/*   Updated: 2021/01/08 10:01:02 by gpiriou          ###   ########.fr       */
+/*   Updated: 2022/11/27 18:41:46 by glpiriou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 static int	ft_strncmp_mod(char *s1, char *s2, size_t n)
 {
-	size_t			i;
-	unsigned char	*char_s1;
-	unsigned char	*char_s2;
+	size_t				i;
+	unsigned char		*char_s1;
+	unsigned char		*char_s2;
 
 	i = 0;
-	char_s1 = (unsigned char*)s1;
-	char_s2 = (unsigned char*)s2;
+	char_s1 = (unsigned char *) s1;
+	char_s2 = (unsigned char *) s2;
 	while ((char_s1[i] && char_s2[i]) && i < n)
 	{
 		if (char_s1[i] != char_s2[i])
@@ -30,10 +30,12 @@ static int	ft_strncmp_mod(char *s1, char *s2, size_t n)
 	return (0);
 }
 
-char		*ft_strnstr(char *haystack, char *needle, size_t len)
+char	*ft_strnstr(char *haystack, char *needle, size_t len)
 {
-	unsigned int i;
+	unsigned int	i;
 
+	if (!haystack)
+		return (NULL);
 	if (*needle == '\0')
 		return (haystack);
 	i = 0;
