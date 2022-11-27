@@ -6,13 +6,13 @@
 /*   By: glpiriou <glpiriou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:54:27 by gpiriou           #+#    #+#             */
-/*   Updated: 2022/11/27 18:41:46 by glpiriou         ###   ########.fr       */
+/*   Updated: 2022/11/27 21:31:15 by glpiriou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_strncmp_mod(char *s1, char *s2, size_t n)
+static int	ft_strncmp_mod(const char *s1, const char *s2, size_t n)
 {
 	size_t				i;
 	unsigned char		*char_s1;
@@ -30,21 +30,21 @@ static int	ft_strncmp_mod(char *s1, char *s2, size_t n)
 	return (0);
 }
 
-char	*ft_strnstr(char *haystack, char *needle, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	unsigned int	i;
 
-	if (!haystack)
+	if (!big)
 		return (NULL);
-	if (*needle == '\0')
-		return (haystack);
+	if (*little == '\0')
+		return ((char *)big);
 	i = 0;
-	while (haystack[i] && i < len)
+	while (big[i] && i < len)
 	{
-		if (!ft_strncmp_mod(&haystack[i], needle, len - i))
+		if (!ft_strncmp_mod(&big[i], little, len - i))
 		{
-			if (i + ft_strlen(needle) <= len)
-				return (&haystack[i]);
+			if (i + ft_strlen(little) <= len)
+				return ((char *)&big[i]);
 		}
 		i++;
 	}

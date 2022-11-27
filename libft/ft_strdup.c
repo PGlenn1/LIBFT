@@ -6,13 +6,13 @@
 /*   By: glpiriou <glpiriou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:48:18 by gpiriou           #+#    #+#             */
-/*   Updated: 2022/11/27 18:49:22 by glpiriou         ###   ########.fr       */
+/*   Updated: 2022/11/27 22:06:26 by glpiriou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(char *s1)
+char	*ft_strdup(const char *s1)
 {
 	int		i;
 	int		len;

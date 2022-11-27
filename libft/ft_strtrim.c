@@ -6,13 +6,13 @@
 /*   By: glpiriou <glpiriou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:55:25 by gpiriou           #+#    #+#             */
-/*   Updated: 2022/11/27 17:17:32 by glpiriou         ###   ########.fr       */
+/*   Updated: 2022/11/27 22:46:36 by glpiriou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char *s1, char *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		i;
 	int		s1_len;
@@ -30,7 +30,8 @@ char	*ft_strtrim(char *s1, char *set)
 	{
 		s2 = ft_substr(s1, i, s1_len - i);
 		if (!s2)
-			return (s2);
+			return (NULL);
+		return (s2);
 	}
 	s2 = ft_strdup("");
 	return (s2);
