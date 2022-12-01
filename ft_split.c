@@ -6,7 +6,7 @@
 /*   By: glpiriou <glpiriou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:43:31 by gpiriou           #+#    #+#             */
-/*   Updated: 2022/11/30 18:29:25 by glpiriou         ###   ########.fr       */
+/*   Updated: 2022/12/01 17:24:42 by glpiriou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,7 @@ static void	ft_free_tab(char **tab)
 
 	i = 0;
 	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab[i]);
+		free(tab[i++]);
 	free(tab);
 }
 

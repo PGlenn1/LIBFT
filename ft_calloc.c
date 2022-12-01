@@ -6,7 +6,7 @@
 /*   By: glpiriou <glpiriou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:28:41 by gpiriou           #+#    #+#             */
-/*   Updated: 2022/11/29 17:32:42 by glpiriou         ###   ########.fr       */
+/*   Updated: 2022/12/01 17:21:03 by glpiriou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	void	*ptr;
 
 	if (nmemb == 0 || size == 0)
-		ft_calloc(1, 1);
+		return (ft_calloc(1, 1));
 	if ((nmemb * size) / size != nmemb)
 		return (NULL);
 	ptr = malloc(nmemb * size);
