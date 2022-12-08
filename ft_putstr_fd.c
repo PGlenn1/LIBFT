@@ -6,7 +6,7 @@
 /*   By: glpiriou <glpiriou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:41:01 by gpiriou           #+#    #+#             */
-/*   Updated: 2022/11/27 17:26:19 by glpiriou         ###   ########.fr       */
+/*   Updated: 2022/12/08 17:26:30 by glpiriou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
-	if (!s)
+	if (!s || fd < 0)
 		return ;
 	i = 0;
 	while (s[i])
