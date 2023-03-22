@@ -18,6 +18,7 @@
 # include <string.h>
 # include <stdio.h>
 # include <ctype.h>
+# include <limits.h>
 
 typedef struct s_list
 {
@@ -26,6 +27,7 @@ typedef struct s_list
 }				t_list;
 
 int				ft_atoi(const char *str);
+long			ft_atoi_long(const char *str);
 void			ft_bzero(void *s, size_t n);
 void			*ft_calloc(size_t nmemb, size_t size);
 int				ft_isalnum(int c);
@@ -33,6 +35,7 @@ int				ft_isalpha(int c);
 int				ft_isascii(int c);
 int				ft_isdigit(int c);
 int				ft_isprint(int c);
+int				ft_is_whitespace(char *str);
 char			*ft_itoa(int n);
 void			ft_lstadd_back(t_list **lst, t_list *new);
 void			ft_lstadd_front(t_list **lst, t_list *new);
