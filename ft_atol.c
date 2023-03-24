@@ -1,6 +1,6 @@
 #include "libft.h"
 
-long     ft_atoi_long(const char *nptr)
+long     ft_atol(const char *nptr)
 {
         int     i;
         long     res;
