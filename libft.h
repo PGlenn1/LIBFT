@@ -26,6 +26,7 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
+int     		*ft_sort(int *tab, int size);
 int				ft_atoi(const char *str);
 long			ft_atoi_long(const char *str);
 void			ft_bzero(void *s, size_t n);
