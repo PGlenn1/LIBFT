@@ -9,7 +9,7 @@ void    ft_swap(int *a, int *b)
         *b = tmp;
 }
 
-int     *ft_sort(int *tab, int size)
+int     *bubble_sort(int *tab, int size)
 {
         int i;
         int j;
