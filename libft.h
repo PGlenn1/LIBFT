@@ -6,7 +6,7 @@
 /*   By: glpiriou <glpiriou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 15:30:41 by gpiriou           #+#    #+#             */
-/*   Updated: 2023/03/09 16:45:52 by glpiriou         ###   ########.fr       */
+/*   Updated: 2023/05/25 18:51:52 by glpiriou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct s_list
 }					t_list;
 
 int					*bubble_sort(int *tab, int size);
-void				print_array(int *array, int size);
 int					ft_atoi(const char *str);
 long				ft_atol(const char *str);
 void				ft_bzero(void *s, size_t n);
